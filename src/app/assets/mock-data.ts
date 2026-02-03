@@ -52,7 +52,7 @@ export class MockData {
     static roleMenuMapping: RoleMenuMapping[] = [
         { role: 'USER', menuIds: [1, 2, 3, 4] },
         { role: 'SUPPORT_ENGINEER', menuIds: [1, 3, 4, 5] },
-        { role: 'ADMIN', menuIds: [1, 2, 3, 4, 5, 6] }
+        { role: 'ADMIN', menuIds: [1, 5, 6] }
     ];
 
     // TICKETS
