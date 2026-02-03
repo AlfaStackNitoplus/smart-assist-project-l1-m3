@@ -35,8 +35,8 @@ export class Login {
     }
     switch (user.role) {
 
-      case 'ADMIN':
-        this.router.navigate(['/admin'], {
+      case 'SUPERVISOR':
+        this.router.navigate(['/supervisor'], {
           queryParams: {
             role: user.role,
             id: user.userId

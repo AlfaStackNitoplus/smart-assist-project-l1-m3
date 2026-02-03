@@ -32,8 +32,8 @@ export class MockData {
         {
             userId: 'U004',
             name: 'Vrushabh',
-            role: 'ADMIN',
-            email: 'admin@smartassist.com',
+            role: 'SUPERVISOR',
+            email: 'supervisor@smartassist.com',
             password: '12345'
         }
     ];
@@ -52,7 +52,8 @@ export class MockData {
     static roleMenuMapping: RoleMenuMapping[] = [
         { role: 'USER', menuIds: [1, 2, 3, 4] },
         { role: 'SUPPORT_ENGINEER', menuIds: [1, 3, 4, 5] },
-        { role: 'ADMIN', menuIds: [1, 5, 6] }
+        { role: 'SUPERVISOR', menuIds: [1, 5, 6] }
+
     ];
 
     // TICKETS

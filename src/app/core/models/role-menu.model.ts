@@ -1,4 +1,4 @@
 export interface RoleMenuMapping {
-  role: 'USER' | 'SUPPORT_ENGINEER' | 'ADMIN';
+  role: 'USER' | 'SUPPORT_ENGINEER' | 'SUPERVISOR';
   menuIds: number[];
 }
