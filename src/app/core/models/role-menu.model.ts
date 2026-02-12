@@ -1,4 +1,6 @@
+import { UserRole } from "./user.model";
+
 export interface RoleMenuMapping {
-  role: 'USER' | 'SUPPORT_ENGINEER' | 'SUPERVISOR';
+  role: UserRole;
   menuIds: number[];
 }

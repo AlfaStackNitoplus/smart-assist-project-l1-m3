@@ -1,33 +1,42 @@
+import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
-import { Router } from '@angular/router';
+import { MatIconModule } from '@angular/material/icon';
+
+import { UserRole } from '../../../core/models/user.model';
 import { MockData } from '../../../assets/mock-data';
+
 @Component({
   selector: 'app-login',
-  imports: [FormsModule,
+  standalone: true,
+  imports: [
+    CommonModule,
+    FormsModule,
     MatCardModule,
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
-    MatIconModule,
-    CommonModule],
+    MatIconModule
+  ],
   templateUrl: './login.html',
   styleUrl: './login.scss',
 })
 export class Login {
-  title: string = 'Login';
+  private router = inject(Router);
+
   username = '';
   password = '';
-  constructor(private router: Router) { }
 
   onLogin() {
-    const user = MockData.users.find(u => u.email === this.username && u.password === this.password);
+    // Requirement 8: All intelligence moves to Services
+    const user = MockData.users.find(
+      u => u.email === this.username && u.password === this.password
+    );
 
     if (!user) {
       alert('Invalid email or password');
@@ -35,7 +44,7 @@ export class Login {
     }
     switch (user.role) {
 
-      case 'SUPERVISOR':
+      case UserRole.SUPERVISOR:
         this.router.navigate(['/supervisor'], {
           queryParams: {
             role: user.role,
@@ -44,7 +53,7 @@ export class Login {
         });
         break;
 
-      case 'SUPPORT_ENGINEER':
+      case UserRole.SUPPORT_ENGINEER:
         this.router.navigate(['/support'], {
           queryParams: {
             role: user.role,
@@ -53,7 +62,7 @@ export class Login {
         });
         break;
 
-      case 'USER':
+      case UserRole.END_USER:
         this.router.navigate(['/user'], {
           queryParams: {
             role: user.role,
@@ -62,6 +71,5 @@ export class Login {
         });
         break;
     }
-
   }
 }
