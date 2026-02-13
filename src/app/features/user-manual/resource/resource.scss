@@ -5,39 +5,39 @@
   background-color: #f4f6f8;
   box-sizing: border-box;
 }
-
+ 
 /* Main card */
 .manual-card {
   max-width: 1000px;
   margin: 0 auto;
   padding: 24px;
 }
-
+ 
 /* Title */
 .manual-card h1 {
   margin-bottom: 4px;
   font-weight: 600;
 }
-
+ 
 /* Subtitle */
 .subtitle {
   color: #666;
   margin-bottom: 16px;
   font-size: 14px;
 }
-
+ 
 /* Section spacing */
 section {
   margin-top: 24px;
 }
-
+ 
 /* Section headings */
 section h2 {
   margin-bottom: 8px;
   font-size: 20px;
   font-weight: 500;
 }
-
+ 
 /* Sub-headings */
 section h3 {
   margin-top: 12px;
@@ -45,17 +45,17 @@ section h3 {
   font-size: 16px;
   font-weight: 500;
 }
-
+ 
 /* Lists */
 ul {
   padding-left: 20px;
   margin-top: 8px;
 }
-
+ 
 ul li {
   margin-bottom: 6px;
 }
-
+ 
 /* Code blocks */
 pre {
   background-color: #eef1f4;
@@ -64,7 +64,17 @@ pre {
   font-size: 13px;
   overflow-x: auto;
 }
-
+ 
+.code-block {
+  background-color: #0f172a;
+  color: #e2e8f0;
+  border-radius: 8px;
+  padding: 12px;
+  font-size: 12.5px;
+  line-height: 1.45;
+  overflow: auto;
+}
+ 
 /* Inline code */
 code {
   background-color: #eef1f4;
@@ -72,12 +82,26 @@ code {
   border-radius: 4px;
   font-size: 13px;
 }
-
+ 
 /* Divider spacing */
 mat-divider {
   margin: 24px 0;
 }
-
+.inner-tabs {
+  margin-top: 8px;
+}
+ 
+.evaluation-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 12px;
+}
+ 
+.evaluation-item {
+  align-items: flex-start;
+}
+ 
 /* Footer note */
 .footer-note {
   text-align: center;
@@ -85,17 +109,17 @@ mat-divider {
   color: #777;
   margin-top: 16px;
 }
-
+ 
 /* Mobile responsiveness */
 @media (max-width: 768px) {
   .manual-container {
     padding: 12px;
   }
-
+ 
   .manual-card {
     padding: 16px;
   }
-
+ 
   section h2 {
     font-size: 18px;
   }

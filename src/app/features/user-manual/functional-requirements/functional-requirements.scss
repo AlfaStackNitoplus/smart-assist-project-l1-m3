@@ -1,0 +1,152 @@
+:host {
+  padding: 24px;
+  background-color: var(--mat-sys-surface-container-low);
+  box-sizing: border-box;
+  overflow: visible;
+}
+ 
+mat-card {
+  width: 100%;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+ 
+.page-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+ 
+.title-icon {
+  width: 18px;
+  height: 18px;
+  background-color: var(--mat-sys-primary);
+  border-radius: 2px;
+}
+ 
+mat-card h1 {
+  margin: 0;
+  font-weight: 700;
+  font-size: 22px;
+}
+ 
+section {
+  margin-top: 20px;
+}
+ 
+.requirements-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  align-items: start;
+}
+ 
+.requirement-card {
+  height: auto;
+  overflow: visible;
+  background-color: var(--mat-sys-surface);
+  border: 1px solid var(--mat-sys-outline-variant);
+  border-radius: 10px;
+  padding: 14px;
+}
+ 
+.requirement-card--wide {
+  grid-column: 1 / -1;
+  height: auto;
+}
+ 
+.requirement-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+ 
+.step-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 22px;
+  height: 22px;
+  padding: 0 6px;
+  border-radius: 4px;
+  background-color: var(--mat-sys-primary);
+  color: var(--mat-sys-on-primary);
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 1;
+  flex: 0 0 auto;
+}
+ 
+.step-badge--ok {
+  background-color: var(--mat-sys-secondary);
+  color: var(--mat-sys-on-secondary);
+}
+ 
+.step-badge--ok::before {
+  content: '✓';
+}
+ 
+.requirement-card h2 {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.25;
+}
+ 
+section h3 {
+  margin-top: 10px;
+  margin-bottom: 6px;
+  font-size: 13px;
+  font-weight: 700;
+}
+ 
+.requirement-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  align-items: start;
+}
+ 
+.requirement-col {
+  min-width: 0;
+}
+ 
+.requirement-col h4 {
+  margin: 10px 0 6px;
+  font-size: 13px;
+  font-weight: 700;
+}
+ 
+ul {
+  padding-left: 20px;
+  margin-top: 8px;
+  margin-bottom: 0;
+}
+ 
+ul li {
+  margin-bottom: 6px;
+}
+ 
+code {
+  overflow-wrap: anywhere;
+}
+ 
+mat-divider {
+  margin: 24px 0;
+}
+ 
+.sublist {
+  margin-top: 6px;
+}
+ 
+@media (max-width: 768px) {
+  :host {
+    padding: 12px;
+  }
+ 
+  .requirement-split {
+    grid-template-columns: 1fr;
+  }
+ 
+}

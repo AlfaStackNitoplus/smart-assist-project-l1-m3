@@ -1,25 +1,81 @@
 <div class="manual-container">
     <mat-card class="manual-card">
-
+ 
         <!-- Title -->
-        <h1>Project Folder Structure – L1M3</h1>
+        <h1>Resources (L1 M3)
+        </h1>
         <mat-divider></mat-divider>
-        <!-- Project Structure -->
-        <section>
-            <p>
-                The application follows a <b>feature-based and scalable folder structure</b>,
-                separating core components, layouts, and feature modules.
-            </p>
-
-            <pre class="project-structure">
-src/
+        <mat-tab-group dynamicHeight>
+           
+            <mat-tab label="Requirement">
+                <app-functional-requirements></app-functional-requirements>
+            </mat-tab>
+ 
+            <mat-tab label="Tips">
+                <section>
+               
+                            <h3>1) Mock Data </h3>
+                            <ul>
+                                <li>Maintain all test data in one place: <b>MockData</b> (Users, Menus, Role↔Menu, Tickets).</li>
+                                <li>When you add a new menu item, update both <b>menus</b> and <b>roleMenuMapping</b> so it appears for the correct roles.</li>
+                            </ul>
+ 
+                            <h3>2) Login &amp; Navigation Flow</h3>
+                            <ul>
+                                <li>Login currently validates using <b>email + password</b> from mock users and then routes based on role.</li>
+                                <li>While navigating to dashboards, always pass <b>id</b> (userId) in <b>queryParams</b> so the dashboard can load user name &amp; role.</li>
+                                <li>Roles in mock data are: <b>USER</b>, <b>SUPPORT_ENGINEER</b>, <b>ADMIN</b> (keep these consistent across data and code).</li>
+                            </ul>
+ 
+                            <h3>3) Role-Based Menu Rendering</h3>
+                            <ul>
+                                <li>The side menu is generated from Role↔Menu mapping; the UI should iterate menus using <code>&#64;for</code> (or <code>*ngFor</code> if needed).</li>
+                                <li>Use <code>&#64;if</code> / <code>&#64;switch</code> when you need role-specific UI blocks (welcome text, actions, etc.).</li>
+                                <li>Keep menu navigation routes aligned with app routing (avoid broken links).</li>
+                            </ul>
+ 
+                            <h3>4) Tickets: Filtering + MatTable</h3>
+                            <ul>
+                                <li><b>End User</b>: filter tickets where <b>createdByUserId</b> matches logged in user.</li>
+                                <li><b>Support Engineer</b>: show tickets assigned to him + unassigned tickets.</li>
+                                <li><b>Admin</b>: show all tickets.</li>
+                                <li>Keep a single <b>displayedColumns</b> definition so the MatTable remains consistent across roles.</li>
+                            </ul>
+ 
+                            <h3>5) UI Highlighting &amp; Reusable Directive</h3>
+                            <ul>
+                                <li>Use <b>[ngClass]</b> for priority classes (low/medium/high) and <b>[ngStyle]</b> for small dynamic styles (weight, opacity, etc.).</li>
+                                <li>Apply the hover directive (<b>appInteractiveRow</b>) to table rows so hover/select behavior is reusable across pages.</li>
+                            </ul>
+ 
+                            <h3>6) Pipes</h3>
+                            <ul>
+                                <li>Use built-in pipes where possible: <b>date</b> for createdAt/createdOn, <b>uppercase/lowercase</b> for status, <b>number</b> for age.</li>
+                                <li>The custom <b>ticketStatus</b> pipe converts enum-like strings (e.g., <b>IN_PROGRESS</b>) into a readable label.</li>
+                                <li>For debugging only, you can display objects using the <b>json</b> pipe (remove it for final UI if needed).</li>
+                            </ul>
+ 
+                            <h3>7) Quick Checks Before Final Submission</h3>
+                            <ul>
+                                <li>Verify login redirects correctly for all roles and menus update based on role.</li>
+                                <li>Verify ticket visibility rules match the role and no empty table breaks the UI.</li>
+                                <li>Verify hover directive works on all ticket tables.</li>
+                            </ul>
+<br>
+                            <h3> <b>Project Folder Structure</b> </h3>
+                            <p>
+                                The application follows a <b>feature-based and scalable folder structure</b>,
+                                separating core components, layouts, and feature modules.
+                            </p>
+ 
+                            <pre class="project-structure">src/
  └── app/
      ├── core/
      │   ├── components/
      │   │   ├── header/
      │   │   └── footer/
      │   ├── models/
-     |   
+     |  
      │
      ├── features/
      │   ├── auth/
@@ -35,16 +91,67 @@ src/
      │
      ├── app.routes.ts
      ├── app.component.ts
-     └── app.config.ts
-      </pre>
-
-            <ul>
-                <li><b>Core</b>: Shared components like Header & Footer, and models.</li>
-                <li><b>Features</b>: Business modules such as Login, Suppervisor, Support Engineer, User and User Manual</li>
-                <li><b>Layouts</b>: Separate layouts for authentication and main app</li>
-                <li><b>Routing</b>: Centralized route configuration in app.routes.ts</li>
-            </ul>
-        </section>
-
+     └── app.config.ts</pre>
+ 
+                            <ul>
+                                <li><b>Core</b>: Shared components like Header &amp; Footer, and services like Auth service.</li>
+                                <li><b>Features</b>: Business modules such as Login, Admin, Support Engineer, User and User Manual</li>
+                                <li><b>Layouts</b>: Separate layouts for authentication and main app</li>
+                                <li><b>Routing</b>: Centralized route configuration in app.routes.ts</li>
+                            </ul>
+                </section>
+            </mat-tab>
+ 
+            <mat-tab label="Test Data">
+                <section>
+                   
+                            <p>
+                                The following mock data is used to drive the UI during development and testing.
+                                This project uses <b>4 required mock datasets</b>:
+                            </p>
+ 
+                            <ul>
+                                <li><b>Users</b> (login + role + profile)</li>
+                                <li><b>Menus</b> (side navigation items)</li>
+                                <li><b>Role ↔ Menu Mapping</b> (role-based menu visibility)</li>
+                                <li><b>Tickets</b> (table display + role-based filtering)</li>
+                            </ul>
+                       
+ 
+                            <h3>Users</h3>
+                            <pre class="mock-json">{{ users | json }}</pre>
+ 
+                            <h3>Menus</h3>
+                            <pre class="mock-json">{{ menus | json }}</pre>
+ 
+                            <h3>Role ↔ Menu Mapping</h3>
+                            <pre class="mock-json">{{ roleMenuMapping | json }}</pre>
+ 
+                            <h3>Tickets</h3>
+                            <pre class="mock-json">{{ tickets | json }}</pre>
+                </section>
+            </mat-tab>
+ 
+            <mat-tab label="Evaluation Parameter">
+                <section>
+                            <p>
+                                Mark each topic you used to complete L1M3. Selections are auto-saved.
+                            </p>
+ 
+                            <div class="evaluation-list">
+                                @for (topic of evaluationTopics; track topic) {
+                                    <mat-checkbox
+                                        class="evaluation-item"
+                                        [checked]="isTopicChecked(topic)"
+                                        (change)="onTopicCheckedChange(topic, $event.checked)">
+                                        {{ topic }}
+                                    </mat-checkbox>
+                                }
+                            </div>
+                </section>
+            </mat-tab>
+ 
+        </mat-tab-group>
+ 
     </mat-card>
 </div>

@@ -1,0 +1,370 @@
+<mat-card>
+ 
+    <div class="page-title">
+    </div>
+ 
+    <section class="requirements-grid">
+      <article class="requirement-card">
+        <div class="requirement-header">
+          <span class="step-badge">1</span>
+          <h2>Mock Data Setup</h2>
+        </div>
+ 
+        <div class="requirement-split">
+          <div class="requirement-col requirement-col--tech">
+            <h2>Technical Requirements</h2>
+            <ul>
+              <li>JSON handling</li>
+            </ul>
+          </div>
+ 
+          <div class="requirement-col requirement-col--func">
+            <h2>Functional Requirements</h2>
+            <ul>
+              <li>Create mock data for Users</li>
+              <li>Create mock data for Menus</li>
+              <li>Create mock data for Tickets</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+ 
+      <article class="requirement-card">
+        <div class="requirement-header">
+          <span class="step-badge">2</span>
+          <h2>Login &amp; User Context (JSON + Data Binding)</h2>
+        </div>
+ 
+        <div class="requirement-split">
+          <div class="requirement-col requirement-col--tech">
+            <h2>Technical Requirements</h2>
+ 
+            <h4>Angular Concepts</h4>
+            <ul>
+              <li>Interpolation for displaying user information.</li>
+              <li>Two-way data binding for login inputs.</li>
+            </ul>
+ 
+            <h4>Angular Material Components</h4>
+            <ul>
+              <li>MatInput – for UserId / login input.</li>
+              <li>MatButton – for the login action.</li>
+              <li>MatHint – for helper or validation hints.</li>
+            </ul>
+          </div>
+ 
+          <div class="requirement-col requirement-col--func">
+            <h2>Functional Requirements</h2>
+            <ul>
+              <li>On login, the system shall identify the user using <b>UserId</b> from mock JSON data.</li>
+              <li>If a valid user is found:</li>
+            </ul>
+            <ul class="sublist">
+              <li>The application shall load the user context (Name and Role).</li>
+              <li>The authenticated user’s details shall be available for subsequent navigation and UI rendering.</li>
+            </ul>
+ 
+            <div>The user data model must include:</div>
+            <ul class="sublist">
+              <li>UserId</li>
+              <li>Name</li>
+              <li>Role</li>
+            </ul>
+ 
+            <ul>
+              <li>Error message on invalid login.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+ 
+      <article class="requirement-card">
+        <div class="requirement-header">
+          <span class="step-badge">3</span>
+          <h2>Role-Based Menu Rendering (Structural Directives)</h2>
+        </div>
+ 
+        <div class="requirement-split">
+          <div class="requirement-col requirement-col--tech">
+            <h2>Technical Requirements</h2>
+            <ul>
+              <li><code>&#64;if</code> / <code>&#64;else</code></li>
+              <li><code>&#64;switch</code> / <code>&#64;case</code></li>
+              <li><code>&#64;for</code> for menu iteration</li>
+              <li>Angular Material MatSidenav</li>
+              <li>Angular Material MatIcon</li>
+            </ul>
+          </div>
+ 
+          <div class="requirement-col requirement-col--func">
+            <h2>Functional Requirements</h2>
+            <ul>
+              <li>Render side navigation menu based on user role</li>
+            </ul>
+ 
+            <h4>Menu Rules</h4>
+            <ul>
+              <li><b>End User</b>
+                <ul class="sublist">
+                  <li>Home</li>
+                  <li>Create Ticket</li>
+                  <li>My Tickets</li>
+                  <li>Track Ticket</li>
+                  <li>Live Chat</li>
+                  <li>AI Assistant</li>
+                </ul>
+              </li>
+              <li><b>Support Engineer</b>
+                <ul class="sublist">
+                  <li>Home</li>
+                  <li>Track Ticket</li>
+                  <li>My Tickets</li>
+                  <li>Live Chat</li>
+                  <li>AI Assistant</li>
+                </ul>
+              </li>
+              <li><b>Supervisor</b>
+                <ul class="sublist">
+                  <li>Home</li>
+                  <li>Reports</li>
+                  <li>Live Chat</li>
+                  <li>AI Assistant</li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </article>
+ 
+      <article class="requirement-card">
+        <div class="requirement-header">
+          <span class="step-badge">4</span>
+          <h2>Role-Based Ticket Visibility (Structural Directives)</h2>
+        </div>
+ 
+        <div class="requirement-split">
+          <div class="requirement-col requirement-col--tech">
+            <h2>Technical Requirements</h2>
+            <ul>
+              <li><code>&#64;if</code> / <code>&#64;else</code></li>
+              <li><code>&#64;switch</code> / <code>&#64;case</code></li>
+              <li><code>&#64;empty</code> for no tickets</li>
+              <li><code>&#64;for</code> for ticket iteration</li>
+            </ul>
+          </div>
+ 
+          <div class="requirement-col requirement-col--func">
+            <h2>Functional Requirements</h2>
+            <h4>Ticket Visibility Rules</h4>
+            <ul>
+              <li><b>End User</b>
+                <ul class="sublist">
+                  <li>View only tickets created by him</li>
+                </ul>
+              </li>
+              <li><b>Support Engineer</b>
+                <ul class="sublist">
+                  <li>View tickets assigned to him</li>
+                  <li>View tickets not assigned to anyone.</li>
+                </ul>
+              </li>
+              <li><b>Supervisor</b>
+                <ul class="sublist">
+                  <li>View all tickets</li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </article>
+ 
+      <article class="requirement-card">
+        <div class="requirement-header">
+          <span class="step-badge">5</span>
+          <h2>Ticket Display (Angular Material Table)</h2>
+        </div>
+ 
+        <div class="requirement-split">
+          <div class="requirement-col requirement-col--tech">
+            <h2>Technical Requirements</h2>
+            <ul>
+              <li>Angular Material Table</li>
+              <li>JSON data binding</li>
+              <li>Structural directives</li>
+            </ul>
+          </div>
+ 
+          <div class="requirement-col requirement-col--func">
+            <h2>Functional Requirements</h2>
+            <ul>
+              <li>Display tickets using MatTable</li>
+              <li>Columns:</li>
+            </ul>
+            <ul class="sublist">
+              <li>Ticket Id</li>
+              <li>Created By</li>
+              <li>Description</li>
+              <li>Priority</li>
+              <li>Status</li>
+              <li>Age</li>
+              <li>Assignee</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+ 
+      <article class="requirement-card">
+        <div class="requirement-header">
+          <span class="step-badge">6</span>
+          <h2>Attribute Directives for UI Highlighting</h2>
+        </div>
+ 
+        <div class="requirement-split">
+          <div class="requirement-col requirement-col--tech">
+            <h2>Technical Requirements</h2>
+            <ul>
+              <li>[ngClass]</li>
+              <li>[ngStyle]</li>
+            </ul>
+          </div>
+ 
+          <div class="requirement-col requirement-col--func">
+            <h2>Functional Requirements</h2>
+            <div>Highlight tickets dynamically:</div>
+            <ul class="sublist">
+              <li>High Priority → red → alpha = 0</li>
+              <li>Medium Priority → red → alpha = 30</li>
+              <li>Low Priority → red →  alpha = 60</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+ 
+      <article class="requirement-card">
+        <div class="requirement-header">
+          <span class="step-badge">7</span>
+          <h2>Custom Directive (Hover Interaction)</h2>
+        </div>
+ 
+        <div class="requirement-split">
+          <div class="requirement-col requirement-col--tech">
+            <h2>Technical Requirements</h2>
+            <ul>
+              <li><code>&#64;HostBinding</code></li>
+              <li><code>&#64;HostListener</code></li>
+              <li>ElementRef</li>
+            </ul>
+            <div>Directive must be reusable.</div>
+          </div>
+ 
+          <div class="requirement-col requirement-col--func">
+            <h2>Functional Requirements</h2>
+            <div>Create a custom directive to:</div>
+            <ul class="sublist">
+              <li>Highlight a ticket row on hover</li>
+              <li>Remove highlight on mouse leave</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+ 
+      <article class="requirement-card">
+        <div class="requirement-header">
+          <span class="step-badge">8</span>
+          <h2>Pipes Usage (Built-in &amp; Custom)</h2>
+        </div>
+ 
+        <div class="requirement-split">
+          <div class="requirement-col requirement-col--tech">
+            <h2>Technical Requirements</h2>
+ 
+            <h4>Built-in Pipes</h4>
+            <ul>
+              <li>date</li>
+              <li>uppercase / lowercase</li>
+              <li>number</li>
+              <li>json (optional)</li>
+            </ul>
+ 
+            <h4>Custom Pipe</h4>
+            <ul>
+              <li>Create a pipe to convert ticket status.</li>
+              <li>Pipe must be pure.</li>
+            </ul>
+          </div>
+ 
+          <div class="requirement-col requirement-col--func">
+            <h2>Functional Requirements</h2>
+            <ul>
+              <li>CreatedOn shall be displayed using date formatting.</li>
+              <li>Status shall be displayed using uppercase/lowercase formatting.</li>
+              <li>Age shall be displayed using number formatting.</li>
+              <li>Debug view may display JSON output (optional).</li>
+              <li>Ticket status shall be converted to readable labels:</li>
+            </ul>
+            <ul class="sublist">
+              <li>IN_PROGRESS → “In Progress”</li>
+              <li>NOT_ASSIGNED → “Not Assigned”</li>
+              <li>FEEDBACK_RECEIVED → “Feedback Received”</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+ 
+      <article class="requirement-card">
+        <div class="requirement-header">
+          <span class="step-badge">9</span>
+          <h2>Angular Material &amp; Bootstrap Usage</h2>
+        </div>
+ 
+        <div class="requirement-split">
+          <div class="requirement-col requirement-col--tech">
+            <h2>Technical Requirements</h2>
+ 
+            <h4>Angular Material</h4>
+            <ul class="sublist">
+              <li>Toolbar</li>
+              <li>Sidenav</li>
+              <li>Menu</li>
+              <li>Icons</li>
+              <li>Table</li>
+              <li>Buttons</li>
+            </ul>
+ 
+            <h4>Bootstrap</h4>
+            <ul class="sublist">
+              <li>Grid layout</li>
+              <li>Responsive spacing</li>
+            </ul>
+          </div>
+ 
+          <div class="requirement-col requirement-col--func">
+            <h2>Functional Requirements</h2>
+            <ul>
+              <li>The UI shall use Angular Material for components and layout.</li>
+              <li>The UI shall use Bootstrap for grid layout and responsive spacing.</li>
+              <li>Rule: Material → components &amp; layout.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+ 
+      <article class="requirement-card requirement-card--wide">
+        <div class="requirement-header">
+          <span class="step-badge step-badge--ok" aria-hidden="true"></span>
+          <h2>Completion Criteria / Acceptance Criteria</h2>
+        </div>
+ 
+        <div>The assignment is complete when:</div>
+        <ul class="sublist">
+          <li>Role-based menus render correctly</li>
+          <li>Tickets are filtered and sorted based on role</li>
+          <li>JSON data drives the UI</li>
+          <li>Structural, attribute, and custom directives are used</li>
+          <li>Built-in and custom pipes are implemented</li>
+          <li>Angular Material &amp; Bootstrap are combined correctly</li>
+        </ul>
+      </article>
+    </section>
+ 
+  </mat-card>
